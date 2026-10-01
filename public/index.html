@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#236b59">
+  <meta name="description" content="OwnTracker — מקום אישי לשינויים קטנים, מעקב יומי והתקדמות בדרך שלך.">
+  <title>OwnTracker — השינוי מתחיל בך</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+  <script type="module" src="/install.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">דילוג לתוכן</a>
+  <aside class="sidebar">
+    <a href="#tracker" class="brand" aria-label="OwnTracker — דף הבית"><img src="/favicon.svg" alt="" width="40" height="40"><span dir="ltr">Own<span class="brand-light">Tracker</span><small>השינוי מתחיל בך</small></span></a>
+    <div class="workspace-label">המרחב האישי שלי</div>
+    <nav aria-label="ניווט ראשי">
+      <a href="#tracker" data-page="tracker"><span data-icon="grid"></span>המעקב שלי<span class="nav-dot"></span></a>
+      <a href="#changes" data-page="changes"><span data-icon="leaf"></span>השינויים שלי<span id="nav-count" class="nav-count">0</span></a>
+      <a href="#reports" data-page="reports"><span data-icon="report"></span>דוחות ותובנות</a>
+    </nav>
+    <div class="sidebar-note"><span data-icon="spark"></span><strong>כל צעד קטן נחשב.</strong><p>לא צריך להיות מושלם.<br>צריך פשוט להתחיל, יום אחרי יום.</p><div class="note-line"></div></div>
+    <div class="sidebar-footer"><div class="avatar">אני</div><div><strong>המסע שלי</strong><small>בקצב שלי, בדרך שלי</small></div><span class="online-dot" title="מרחב אישי מקומי"></span></div>
+  </aside>
+
+  <div class="app-shell">
+    <header class="topbar"><div class="breadcrumb">המרחב שלי <span>/</span> <strong id="page-crumb">המעקב שלי</strong></div><div class="today-label"><span data-icon="calendar"></span><span id="today-label"></span></div></header>
+    <main id="main" tabindex="-1">
+      <section id="auth-panel" class="panel auth-panel" aria-labelledby="auth-title" hidden>
+        <img src="/favicon.svg" width="52" height="52" alt="OwnTracker">
+        <div class="eyebrow">אותו מסע, בכל מכשיר</div>
+        <h1 id="auth-title">התחברות למרחב שלי</h1>
+        <p>השינויים והדיווחים שלך מחכים לך גם בטלפון וגם במחשב.</p>
+        <form id="auth-form">
+          <label for="auth-email">כתובת אימייל</label><input type="email" id="auth-email" autocomplete="username" required dir="ltr">
+          <label for="auth-password">סיסמה</label><input type="password" id="auth-password" autocomplete="current-password" required dir="ltr">
+          <p id="auth-error" class="form-error" role="alert" hidden></p>
+          <button type="submit" id="auth-submit" class="btn primary">כניסה לחשבון</button>
+        </form>
+        <p class="auth-hint">יש להשתמש בחשבון OwnTracker שהוגדר עבורך.</p>
+      </section>
+      <div id="cloud-account" class="cloud-account" hidden><span><span class="tiny-dot"></span><span id="sync-status">מחובר לענן</span> · <bdi id="account-email"></bdi></span><div><button id="sync-now" class="btn small">רענון נתונים</button><button id="sign-out" class="text-btn">יציאה מהחשבון</button></div></div>
+      <section id="install-banner" class="install-banner" aria-label="התקנת OwnTracker" hidden><div><strong>המסע שלך, גם במסך הבית</strong><p>התקינו את OwnTracker לפתיחה ישירה כאפליקציה.</p></div><button id="install-app" class="btn primary small" type="button">התקנת האפליקציה</button></section>
+      <p id="install-message" class="install-message" role="status" hidden></p>
+      <div id="connection-error" class="error-banner" role="alert" hidden><span id="connection-message"></span><button id="retry-load" class="btn small">ניסיון נוסף</button></div>
+      <div id="loading" class="loading" role="status">טוענים את המרחב שלך…</div>
+      <div id="app-content" hidden>
+        <section class="page-heading"><div><div class="eyebrow" id="page-eyebrow">קצת יותר קרוב לעצמך</div><h1 id="page-title">המעקב שלי</h1><p id="page-description">מקום לשינויים קטנים שעושים הבדל גדול.</p></div><button class="btn primary" data-action="new-change"><span data-icon="plus"></span>שינוי חדש</button></section>
+
+        <section id="tracker-page" class="page">
+          <div class="hero">
+            <div class="hero-copy"><span class="pill"><span class="tiny-dot"></span>יום חדש, הזדמנות חדשה</span><h2>שינוי קטן.<br><span>התקדמות גדולה.</span></h2><p>רגע של תשומת לב היום, עוד צעד בדרך שלך.<br>איך הולך עם השינויים שלך?</p><button class="btn dark" data-action="new-entry">מילוי הדיווח שלי <span data-icon="arrow-left"></span></button></div>
+            <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="sprout"><span class="stem"></span><span class="leaf leaf-one"></span><span class="leaf leaf-two"></span><span class="leaf leaf-three"></span><span class="leaf leaf-four"></span></div><div class="art-tag tag-one"><span>✓</span> בקצב שלך</div><div class="art-tag tag-two"><span>✦</span> צעד קטן בכל יום</div><span class="art-spark spark-one">✧</span><span class="art-spark spark-two">✦</span><div class="ground"></div></div>
+          </div>
+          <section class="stats" aria-label="סיכום התקופה"><article class="stat-card"><span class="stat-icon mint" data-icon="leaf"></span><div><span>שינויים פעילים היום</span><strong id="stat-active">0</strong></div><small>בדרך שלך</small></article><article class="stat-card"><span class="stat-icon sand" data-icon="check"></span><div><span>דיווחי ״בוצע״ בתקופה</span><strong id="stat-done">0</strong></div><small id="stat-period">השבוע</small></article><article class="stat-card"><span class="stat-icon lilac" data-icon="note"></span><div><span>דיווחים שמולאו היום</span><strong id="stat-today">0<span> / 0</span></strong></div><small>כל דיווח מלמד משהו</small></article></section>
+          <section class="panel tracker-panel" aria-labelledby="tracker-title">
+            <div class="panel-heading"><div><h2 id="tracker-title">תמונת ההתקדמות שלך</h2><p>לחיצה על יום מאפשרת למלא או לערוך את הדיווח.</p></div><button class="btn subtle small" data-action="view-report"><span data-icon="report"></span>הפקת דוח</button></div>
+            <div class="table-toolbar"><div class="segmented" id="tracker-periods" aria-label="טווח תצוגה"><button data-period="daily">יומי</button><button data-period="weekly" class="selected">שבועי</button><button data-period="monthly">חודשי</button></div><div class="date-controls"><button class="icon-btn" id="previous-period" aria-label="לתקופה הקודמת"><span data-icon="chevron-right"></span></button><strong id="range-label"></strong><button class="icon-btn" id="next-period" aria-label="לתקופה הבאה"><span data-icon="chevron-left"></span></button><button class="btn small today-btn" id="jump-today">היום</button><label class="date-jump"><span class="sr-only">בחירת תאריך לתצוגה</span><input type="date" id="tracker-date" aria-label="בחירת תאריך לתצוגה" min="1900-01-07" max="9998-12-25"></label></div></div>
+            <div id="tracker-table" class="table-scroll" tabindex="0" aria-label="טבלת מעקב, ניתנת לגלילה אופקית"></div>
+            <div id="tracker-empty" class="empty-state" hidden></div>
+            <div class="table-footer"><div class="legend"><span><i class="status-mark done">✓</i>בוצע</span><span><i class="status-mark missed">×</i>לא בוצע</span><span><i class="status-mark other">○</i>אחר</span><span><i class="empty-mark"></i>חסר מילוי</span><span><span data-icon="note"></span>יש הסבר</span></div><span class="muted">כל דיווח הוא חלק מהדרך.</span></div>
+          </section>
+          <section class="reflection-card"><div class="reflection-icon" data-icon="spark"></div><div><h3>להסתכל אחורה. להתקדם קדימה.</h3><p>הדיווחים שלך מספרים סיפור. אפשר להפיק דוח ולשתף עם מודל AI כדי לחשוב על הצעד הבא.</p></div><button class="text-btn" data-action="view-report">לדוח שלי <span data-icon="arrow-left"></span></button></section>
+          <section id="starter-section" class="starter-section"><div class="section-label">כל מסע מתחיל בשינוי אחד <span>הנה כמה רעיונות להתחלה</span></div><div class="starter-grid"><button data-suggestion="לא לאכול 3 שעות לפני השינה"><span class="suggestion-emoji">☾</span><strong>ערב רגוע יותר</strong><span>לא לאכול 3 שעות לפני השינה</span><i>+</i></button><button data-suggestion="לצאת להליכה של 20 דקות"><span class="suggestion-emoji">↗</span><strong>קצת זמן בתנועה</strong><span>לצאת להליכה של 20 דקות</span><i>+</i></button><button data-suggestion="לקרוא 10 עמודים בספר"><span class="suggestion-emoji">▤</span><strong>רגע בשביל עצמי</strong><span>לקרוא 10 עמודים בספר</span><i>+</i></button></div></section>
+        </section>
+
+        <section id="changes-page" class="page" hidden><div class="changes-toolbar"><div class="segmented" id="change-filters"><button data-filter="active" class="selected">פעילים</button><button data-filter="archived">נמחקו</button><button data-filter="all">הכול</button></div><label class="search-box"><span data-icon="search"></span><input id="change-search" type="search" placeholder="חיפוש שינוי…" aria-label="חיפוש שינוי"></label></div><div id="changes-list" class="changes-grid"></div></section>
+
+        <section id="reports-page" class="page" hidden><div class="report-layout"><section class="panel report-settings"><div class="report-settings-icon" data-icon="report"></div><h2>זמן לתמונה הגדולה</h2><p>בחרו תקופה וקבלו דוח עם כל השינויים, הדיווחים וההסברים שלכם.</p><label for="report-period">סוג הדוח</label><select id="report-period"><option value="daily">יומי</option><option value="weekly" selected>שבועי</option><option value="monthly">חודשי</option></select><label for="report-date">תאריך בתוך התקופה</label><input type="date" id="report-date" min="1900-01-07" max="9998-12-25"><div class="report-range" id="report-range"></div><button class="btn primary" id="generate-report"><span data-icon="spark"></span>הפקת דוח</button><div class="report-tip"><strong>מה עושים עם הדוח?</strong><p>מעתיקים אותו לשיחה עם מודל AI לבחירתכם. הדוח כבר כולל בקשה לניתוח ולהצעת צעדים מעשיים.</p><small>אתם בוחרים מתי ועם מי לשתף.</small></div></section><section class="panel report-preview"><div class="panel-heading"><div><h2>הדוח שלך</h2><p id="report-preview-description">מוכן להעתקה ולשיתוף</p></div><span class="file-badge">TXT</span></div><div id="report-placeholder" class="empty-state"><span class="empty-icon" data-icon="report"></span><h3>מבט חדש על הדרך שלך</h3><p>בחרו תקופה ולחצו על ״הפקת דוח״.<br>גם שינויים שנמחקו והיו פעילים בתקופה יופיעו כאן.</p></div><textarea id="report-output" aria-label="תוכן הדוח" readonly hidden spellcheck="false"></textarea><div class="report-actions"><button class="btn primary" id="copy-report" disabled><span data-icon="copy"></span>העתקת דוח</button><button class="btn" id="download-report" disabled><span data-icon="download"></span>הורדת קובץ</button></div></section></div></section>
+        <footer class="main-footer"><span dir="ltr">OwnTracker <span class="footer-separator">·</span> Make room for change.</span><a href="/api/backup" download="owntracker-backup.json"><span data-icon="download"></span>ייצוא הנתונים שלי</a></footer>
+      </div>
+    </main>
+  </div>
+
+  <dialog id="change-dialog" aria-labelledby="change-dialog-title"><form id="change-form"><div class="dialog-heading"><div><span class="eyebrow">מפנים מקום לשינוי</span><h2 id="change-dialog-title">שינוי חדש</h2></div><button type="button" class="icon-btn" data-close="change-dialog" aria-label="סגירת חלון שינוי"><span data-icon="x"></span></button></div><p class="dialog-intro">מה היית רוצה לעשות קצת אחרת?</p><label for="change-title">כותרת השינוי <span class="required">*</span></label><input id="change-title" name="title" required maxlength="120" placeholder="למשל, לא לאכול 3 שעות לפני השינה"><label for="change-description">תיאור מפורט <span class="optional">לא חובה</span></label><textarea id="change-description" name="description" rows="3" maxlength="4000" placeholder="מה חשוב לך בשינוי הזה? איך הוא ייראה ביום־יום?"></textarea><label for="change-frequency">תדירות</label><select id="change-frequency" name="frequency"><option value="daily">יומי</option><option value="weekly">שבועי</option><option value="monthly">חודשי</option></select><p class="field-hint">אפשר לדווח בכל יום, גם עבור שינוי שבועי או חודשי.</p><p class="form-error" id="change-error" role="alert" hidden></p><div class="dialog-actions"><button type="submit" class="btn primary" id="save-change">שמירת השינוי</button><button type="button" class="btn" data-close="change-dialog">ביטול</button><button type="button" class="text-btn danger push-end" id="delete-change" hidden><span data-icon="trash"></span>מחיקת שינוי</button></div></form></dialog>
+
+  <dialog id="entry-dialog" aria-labelledby="entry-dialog-title"><form id="entry-form"><div class="dialog-heading"><div><span class="eyebrow">רגע של התבוננות</span><h2 id="entry-dialog-title">איך הלך היום?</h2></div><button type="button" class="icon-btn" data-close="entry-dialog" aria-label="סגירת חלון דיווח"><span data-icon="x"></span></button></div><label for="entry-change">השינוי שלי</label><select id="entry-change" required></select><label for="entry-date">תאריך הדיווח</label><input type="date" id="entry-date" required min="1900-01-01"><p id="entry-date-hint" class="field-hint">אפשר גם להשלים דיווח ליום קודם.</p><fieldset class="status-fieldset"><legend>איך היה?</legend><div class="status-options"><label><input type="radio" name="status" value="done" aria-label="בוצע" required><span class="status-choice done"><b>✓</b>בוצע</span></label><label><input type="radio" name="status" value="missed" aria-label="לא בוצע"><span class="status-choice missed"><b>×</b>לא בוצע</span></label><label><input type="radio" name="status" value="other" aria-label="אחר"><span class="status-choice other"><b>○</b>אחר</span></label></div></fieldset><label for="entry-explanation">הסבר <span class="optional">לא חובה</span></label><textarea id="entry-explanation" rows="4" maxlength="8000" placeholder="מה עזר לך? מה הקשה? כל פרט יכול לעזור להבין את הדרך."></textarea><p class="form-error" id="entry-error" role="alert" hidden></p><div class="dialog-actions"><button type="submit" class="btn primary" id="save-entry">שמירת הדיווח</button><button type="button" class="btn" data-close="entry-dialog">ביטול</button><span class="muted push-end">תמיד אפשר לערוך בהמשך</span></div></form></dialog>
+
+  <dialog id="confirm-dialog" class="confirm-dialog" aria-labelledby="confirm-title"><div class="confirm-symbol" data-icon="note"></div><h2 id="confirm-title"></h2><p id="confirm-message"></p><div class="dialog-actions"><button class="btn primary" id="confirm-accept">המשך</button><button class="btn" id="confirm-cancel">ביטול</button></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <noscript><p class="error-banner">כדי להשתמש ב־OwnTracker יש להפעיל JavaScript בדפדפן.</p></noscript>
+</body>
+</html>

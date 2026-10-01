@@ -1,0 +1,15 @@
+data/
+node_modules/
+artifacts/
+*.log
+.env
+.env.*
+!.env.example
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.db
+test-results/
+playwright-report/
+site/
+OwnTracker-web.zip
